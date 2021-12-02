@@ -9,12 +9,12 @@ const Form = ({book, setBook}) => {
         })
     }
 
-    let{titulo, autor, edicion} = book
+    let{nombre, descripcion, codigo_categoria, precio, estado} = book
 
     const handleSubmit = () => {
-        edicion = parseInt(edicion, 10)
+        codigo_categoria = parseInt(codigo_categoria, 10)
         //validación de los datos
-        if (titulo === '' || autor === '' || edicion <= 0 ) {
+        if (nombre === '' || descripcion === '' || codigo_categoria === '' || precio === '' || estado <= 0 ) {
             alert('Todos los campos son obligatorios')
             return
         }
@@ -31,9 +31,12 @@ const Form = ({book, setBook}) => {
 
         //reiniciando state de libro
         setBook({
-            titulo: '',
-            autor: '',
-            edicion: 0
+            nombre: '',
+            descripcion: '',
+            codigo_categoria: '',
+            precio: '',
+            estado: ''
+            
         })
 
 
@@ -44,16 +47,25 @@ const Form = ({book, setBook}) => {
         <form onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label htmlFor="title" className="form-label">Title</label>
-                <input value={titulo} name="titulo" onChange={handleChange} type="text" id="title" className="form-control"/>
+                <input value={nombre} name="nombre" onChange={handleChange} type="text" id="nombre" className="form-control"/>
             </div>
             <div className="mb-3">
                 <label htmlFor="author" className="form-label">Author</label>
-                <input value={autor} name="autor" onChange={handleChange} type="text" id="author" className="form-control"/>
+                <input value={descripcion} name="descripcion" onChange={handleChange} type="text" id="descripcion" className="form-control"/>
             </div>
             <div className="mb-3">
                 <label htmlFor="edition" className="form-label">Edition</label>
-                <input value={edicion}  name="edicion" onChange={handleChange} type="number" id="edition" className="form-control"/>
+                <input value={codigo_categoria}  name="codigo_categoria" onChange={handleChange} type="number" id="codigo_categoria" className="form-control"/>
             </div>
+            <div className="mb-3">
+                <label htmlFor="title" className="form-label">Title</label>
+                <input value={precio} name="nombre" onChange={handleChange} type="text" id="precio" className="form-control"/>
+            </div>
+            <div className="mb-3">
+                <label htmlFor="author" className="form-label">Author</label>
+                <input value={estado} name="descripcion" onChange={handleChange} type="text" id="estado" className="form-control"/>
+            </div>
+
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
     );

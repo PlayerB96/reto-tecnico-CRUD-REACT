@@ -20,6 +20,7 @@ function App() {
       fetch('http://localhost:9000/api')
       .then(res => res.json())
       .then(res => setBooks(res))
+      console.log('prueba')
     }
     getBooks()
     setListUpdated(false)
