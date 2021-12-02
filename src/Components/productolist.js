@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BookList = ({Producto, setBook, books, setListUpdated}) => {
+const productlist = ({Producto, setProduct, Products, setListUpdated}) => {
 
 
     const handleDelete = id => {
@@ -32,7 +32,7 @@ const BookList = ({Producto, setBook, books, setListUpdated}) => {
         .then(res => console.log(res))
 
         //reiniciando state de libro
-        setBook({
+        setProduct({
             nombre: '',
             descripcion: '',
             codigo_categoria: '',
@@ -57,7 +57,7 @@ const BookList = ({Producto, setBook, books, setListUpdated}) => {
                 </tr>
             </thead>
             <tbody>
-                {books.map(Producto => (
+                {Products.map(Producto => (
                     <tr key={Producto.codigo}>
                         <td>{Producto.codigo}</td>
                         <td>{Producto.descripcion}</td>
@@ -79,4 +79,4 @@ const BookList = ({Producto, setBook, books, setListUpdated}) => {
     );
 }
  
-export default BookList;
+export default ProductList;

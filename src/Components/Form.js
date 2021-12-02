@@ -1,15 +1,15 @@
 import React from 'react';
 
-const Form = ({book, setBook}) => {
+const Form = ({productos, setproductos}) => {
 
     const handleChange = e => {
-        setBook({
-            ...book,
+        setproductos({
+            ...productos,
             [e.target.name]: e.target.value
         })
     }
 
-    let{nombre, descripcion, codigo_categoria, precio, estado} = book
+    let{nombre, descripcion, codigo_categoria, precio, estado} = productos
 
     const handleSubmit = () => {
         codigo_categoria = parseInt(codigo_categoria, 10)
@@ -23,14 +23,14 @@ const Form = ({book, setBook}) => {
         const requestInit = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(book)
+            body: JSON.stringify(productos)
         }
         fetch('http://localhost:9000/api', requestInit)
         .then(res => res.text())
         .then(res => console.log(res))
 
         //reiniciando state de libro
-        setBook({
+        setproductos({
             nombre: '',
             descripcion: '',
             codigo_categoria: '',
